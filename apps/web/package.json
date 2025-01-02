@@ -10,7 +10,12 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@repo/db": "*",
     "@repo/ui": "*",
+    "@repo/utilss" : "*",
+    "@repo/zod": "*",
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^2.4.3",
     "next": "^14.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
