@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { userSchema } from "@repo/zod"
+import { userSchemaObject } from "@repo/zod"
 import prisma from "@repo/db";
 import bcrypt from 'bcryptjs'
 // import { handleErrorUser } from "@repo/utilss/errorhandle";
@@ -7,7 +7,7 @@ import bcrypt from 'bcryptjs'
 
 // user creation 
 export async function  POST(req : NextRequest) {
-    const parsedObject = userSchema.safeParse(await req.json())
+    const parsedObject = userSchemaObject.safeParse(await req.json())
 
     if(!parsedObject.success){
         return NextResponse.json(
