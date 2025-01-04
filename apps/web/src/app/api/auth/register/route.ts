@@ -43,7 +43,7 @@ export async function  POST(req : NextRequest) {
         if(error instanceof Error && error.code === 'P2002'){
             return NextResponse.json(
                 {msg : 'user already exits'},
-                {status : 400}
+                {status : 409}
             )
         }
 
