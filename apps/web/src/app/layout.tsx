@@ -1,6 +1,11 @@
 import "./globals.css";
 import "@repo/ui/styles.css";
+import { url } from "inspector";
 import type { Metadata } from "next";
+import localFont from 'next/font/local'
+
+
+const myFont = localFont({src : "./fonts/JE_font.ttf"})
 
 
 export const metadata: Metadata = {
@@ -15,7 +20,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={'bg-slate-300'}>{children}</body>
+      <body className={`${myFont.className} bg-slate-300`}>{children}</body>
     </html>
   );
 }

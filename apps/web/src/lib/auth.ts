@@ -92,8 +92,8 @@ export const authOptions : NextAuthOptions = {
         }
     },
     // pages : {
-    //     signIn : '/s'
-    // } change to default page
+    //     signIn : '/auth'
+    // } ,//change to default page
     session : {
         strategy : 'jwt',
         maxAge : 30 * 24 * 60 * 60
