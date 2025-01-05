@@ -16,10 +16,7 @@ export const authOptions : NextAuthOptions = {
             // @ts-ignore
             async authorize(credentials){
                 if(!credentials?.email || !credentials?.password){
-                    return NextResponse.json(
-                        {msg : 'provide credentials'},
-                        {status : 400}
-                    )
+                    throw new Error("Please provide all required credentials ")
                 }
 
                 try {
@@ -30,19 +27,13 @@ export const authOptions : NextAuthOptions = {
                     })
 
                     if(!user){
-                        return NextResponse.json(
-                            {msg : "user not found with the email"},
-                            {status : 404}
-                        )
+                        throw new Error("User not found ")
                     }
 
                     const isvalid = await bcrypt.compare(credentials.password , user.password)
 
                     if(!isvalid){
-                        return NextResponse.json(
-                            {msg : 'Invalid password'},
-                            {status : 404}
-                        )
+                        throw new Error("Invalid password ")
                     }
                     
                     return {
@@ -51,10 +42,7 @@ export const authOptions : NextAuthOptions = {
                     }
                     // this two things returns in the token format
                 } catch (error) {
-                    return NextResponse.json(
-                        {msg : `Something went wrong in signin error : ${error}`},
-                        {status : 500}
-                    )
+                    throw error
                 }
             },
 

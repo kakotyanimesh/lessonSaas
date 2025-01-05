@@ -1,16 +1,15 @@
+
 "use client"
 
-import { Button } from "./button.tsx"
-import { Input } from "./Input.tsx"
+import { Button } from "@repo/ui/button"
+import { Input } from "@repo/ui/input"
 import axios from "axios"
 import { useRef, useState } from "react"
-import { useRouter } from "next/navigation"
-import { Notification } from "./Notification.tsx"
+import { Notification } from "@repo/ui/Notification"
 import { motion } from "motion/react"
 import { signIn  } from "next-auth/react"
 
 export default function SignUp() {
-    const router = useRouter()
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
     const [errmsg, setErrorMsg] = useState("")
@@ -38,31 +37,14 @@ export default function SignUp() {
             return errNotification("Empty Input fields ")
         }
         try {
-            // user try to register 
-            const res = await axios.post('http://localhost:3000/api/auth/register', {
+            await axios.post('http://localhost:3000/api/auth/register', {
                 email : emailRef.current?.value,
                 password : passwordRef.current?.value
             })
 
-            // if registration successfull then automatic login via next auth 
-            if(res.status === 200){
-                const result = await signIn('credentials', {
-                    email : emailRef?.current?.value,
-                    password : passwordRef?.current?.value,
-                    redirect : false
-                    // redirect false so no redirect to another page for error handle
-                })
-
-                if(result?.error){
-                    errNotification("LogIn failed after registration")
-                    // if err then notification
-                    return
-                }
-
-                // if no err then redirect to dashboard page 
-                router.push("/dashboard")
-            }
+            // console.log(user.data);
             
+            await signIn();
             
             
         } catch (error) {
