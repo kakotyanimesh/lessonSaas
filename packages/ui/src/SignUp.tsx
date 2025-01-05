@@ -34,8 +34,9 @@ export default function SignUp() {
     }
 
     const registerUser = async () => {
-        if(!emailRef.current?.value && !passwordRef.current?.value){
+        if(!emailRef.current?.value || !passwordRef.current?.value){
             return errNotification("Empty Input fields ")
+            
         }
         try {
             // user try to register 

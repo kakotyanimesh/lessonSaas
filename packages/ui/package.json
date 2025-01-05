@@ -13,7 +13,8 @@
     "./button": "./src/button.tsx",
     "./input": "./src/Input.tsx",
     "./Notification": "./src/Notification.tsx",
-    "./SignUp": "./src/SignUp.tsx"
+    "./SignUp": "./src/SignUp.tsx",
+    "./SignIn" : "./src/SignIn.tsx"
   },
   "license": "MIT",
   "scripts": {
