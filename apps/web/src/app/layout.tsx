@@ -6,6 +6,7 @@ import localFont from 'next/font/local'
 
 
 const myFont = localFont({src : "./fonts/JE_font.ttf"})
+export const fontOne = localFont({src : "./fonts/fontone.otf"})
 
 
 export const metadata: Metadata = {

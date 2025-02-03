@@ -5,5 +5,8 @@
   "license": "MIT",
   "exports" : {
     "./errorhandle" : "./src/errorhandle.ts"
+  },
+  "devDependencies": {
+    "@repo/typescript-config" : "workspace:*"
   }
 }

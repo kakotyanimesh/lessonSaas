@@ -14,7 +14,11 @@
     "./input": "./src/Input.tsx",
     "./Notification": "./src/Notification.tsx",
     "./SignUp": "./src/SignUp.tsx",
-    "./SignIn" : "./src/SignIn.tsx"
+    "./SignIn" : "./src/SignIn.tsx",
+    "./Eductor" : "./src/svgs/educator.tsx",
+    "./Certificate" : "./src/svgs/certificate.tsx",
+    "./Ai" : "./src/svgs/ai.tsx",
+    "./s" : "./src/svgs/down.tsx"
   },
   "license": "MIT",
   "scripts": {
@@ -27,9 +31,9 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/tailwind-config": "*",
-    "@repo/typescript-config": "*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/react": "^18.2.61",
     "autoprefixer": "^10.4.18",
     "postcss": "^8.4.35",

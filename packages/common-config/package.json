@@ -1,12 +1,15 @@
 {
-  "name": "@repo/zod",
+  "name": "@repo/common",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "exports" : {
-    "." : "./src/index.ts"
+    "./types" : "./src/zod.ts"
   },
   "dependencies": {
     "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config" : "workspace:*"
   }
 }

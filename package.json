@@ -17,11 +17,7 @@
     "node": ">=18"
   },
   "name": "with-tailwind",
-  "packageManager": "yarn@1.22.22",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "packageManager": "pnpm@8.15.6",
   "dependencies": {
     "prisma": "^6.1.0"
   }
