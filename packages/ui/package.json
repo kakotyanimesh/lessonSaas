@@ -18,7 +18,9 @@
     "./Eductor" : "./src/svgs/educator.tsx",
     "./Certificate" : "./src/svgs/certificate.tsx",
     "./Ai" : "./src/svgs/ai.tsx",
-    "./s" : "./src/svgs/down.tsx"
+    "./s" : "./src/svgs/down.tsx",
+    "./Test" : "./src/testimonialCard.tsx",
+    "./pricing" : "./src/pricingCard.tsx"
   },
   "license": "MIT",
   "scripts": {

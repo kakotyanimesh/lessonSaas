@@ -6,6 +6,8 @@ import NavBar from "./components/Navbar";
 import Body from "./components/Body";
 import About from "./components/about";
 import Works from "./components/works";
+import Testimonial from "./components/testimonial";
+import Pricing from "./components/Pricing";
 
 
 export default async function Page() {
@@ -21,6 +23,8 @@ export default async function Page() {
         <Body/>
         <About/>
         <Works/>
+        <Testimonial/>
+        <Pricing/>
       </div>
     </div>
   );
