@@ -5,6 +5,8 @@ import bcrypt from 'bcryptjs'
 // import { handleErrorUser } from "@repo/utilss/errorhandle";
 
 
+
+
 // user creation 
 export async function  POST(req : NextRequest) {
     const parsedObject = userSchemaObject.safeParse(await req.json())
@@ -60,3 +62,5 @@ export async function  POST(req : NextRequest) {
 //         msg : 'hii '
 //     })
 // }
+
+

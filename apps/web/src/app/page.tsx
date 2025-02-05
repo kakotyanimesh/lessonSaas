@@ -8,6 +8,7 @@ import About from "./components/about";
 import Works from "./components/works";
 import Testimonial from "./components/testimonial";
 import Pricing from "./components/Pricing";
+import Footer from "./components/Footer";
 
 
 export default async function Page() {
@@ -25,6 +26,7 @@ export default async function Page() {
         <Works/>
         <Testimonial/>
         <Pricing/>
+        <Footer/>
       </div>
     </div>
   );

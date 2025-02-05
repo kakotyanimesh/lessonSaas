@@ -55,7 +55,11 @@ export default function SignIn () {
                 <Input placeholder="LessonFlow@gmail.com" Ref={emailRef} varientsType="default" type="email" label="email" />
                 <Input placeholder="password" varientsType="default" Ref={passwordRef} type="password" label="password"/>
                 <Button title="sign in" onClick={() => logInUser()} varientstype="primary" />
+                <div>
+                <Button title="signin with google" onClick={() => signIn("google")} varientstype="primary"/>
+                </div>
             </div>
+            
             <motion.div initial={{y : 20}} animate={{y : 0, scale : 1.01, transition : {duration : 1, ease : "easeIn"}}} className="absolute ui-bottom-10 right-3">
                 {errmsg && <Notification msg={errmsg}/>}
             </motion.div>

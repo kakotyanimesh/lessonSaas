@@ -26,12 +26,12 @@ model User {
 
 model LessonPlan{
   id Int @default(autoincrement()) @id
-  userId Int 
-  User User @relation(fields: [userId], references: [id])
-  subject String
+  userEmail String 
+  User User @relation(fields: [userEmail], references: [email])
+  subjectType String
   topic String
-  class Int
-  lessonPlanLink String
+  grade String
+  googleDocsId  String
   createdAt DateTime @default(now())
 }
 

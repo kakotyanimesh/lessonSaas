@@ -17,6 +17,7 @@ export const updateUserSchemaObject = z.object({
 export const LessonPlanObject = z.object({
     subject : z.string().max(30, {message : 'max 30 character of subject is allowed'}),
     topic : z.string().max(30, {message : "max 30 character of topic is allowed"}),
-    class : z.number(),
-    lessonPlanLink : z.string()
+    grade : z.string(),
+    duration : z.number()
+    // lessonPlanLink : z.string().optional()
 })

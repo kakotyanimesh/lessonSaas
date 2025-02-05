@@ -2,6 +2,7 @@ import prisma from "@repo/db";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NextResponse } from "next/server";
+import  GoogleProvider  from "next-auth/providers/google" 
 import bcrypt from 'bcryptjs'
 
 
@@ -46,6 +47,16 @@ export const authOptions : NextAuthOptions = {
                 }
             },
 
+        }),
+        GoogleProvider({
+            clientId : process.env.GOOGLE_CLIENT_ID!,
+            clientSecret : process.env.GOOGLE_CLIENT_SECRET!,
+            authorization : {
+                params : {
+                    scope : `openid profile email https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive.file`
+                }
+                // scope is for access to users ids emails and docs for edit and account creation !!
+            }
         })
     ],
     /**
@@ -63,7 +74,10 @@ export const authOptions : NextAuthOptions = {
             * in the jwt method from the user object of session extract the user information and store it in the pure jwt token that we get from the jwt method
     */
     callbacks : {
-        async jwt({token, user}){
+        async jwt({token, user, account}){
+            if(account && account.provider === "google"){
+                token.accessToken = account.access_token
+            }
             if(user){
                 token.sub = user.id
                 token.email = user.email
@@ -74,6 +88,7 @@ export const authOptions : NextAuthOptions = {
         async session({session, token} : any){
             session.user.id = token.sub,
             session.user.email = token.email 
+            session.accessToken = token.accessToken
 
             return session
             
