@@ -20,7 +20,8 @@
     "./Ai" : "./src/svgs/ai.tsx",
     "./s" : "./src/svgs/down.tsx",
     "./Test" : "./src/testimonialCard.tsx",
-    "./pricing" : "./src/pricingCard.tsx"
+    "./pricing" : "./src/pricingCard.tsx",
+    "./lessonPlan" : "./src/LessonPlan.tsx"
   },
   "license": "MIT",
   "scripts": {
