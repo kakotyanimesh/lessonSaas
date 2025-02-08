@@ -6,6 +6,7 @@ import  GoogleProvider  from "next-auth/providers/google"
 import bcrypt from 'bcryptjs'
 
 
+
 export const authOptions : NextAuthOptions = {
     providers : [
         CredentialsProvider({
@@ -31,7 +32,7 @@ export const authOptions : NextAuthOptions = {
                         throw new Error("User not found ")
                     }
 
-                    const isvalid = await bcrypt.compare(credentials.password , user.password)
+                    const isvalid = await bcrypt.compare(credentials.password , user.password!)
 
                     if(!isvalid){
                         throw new Error("Invalid password ")
@@ -78,17 +79,30 @@ export const authOptions : NextAuthOptions = {
             if(account && account.provider === "google"){
                 token.accessToken = account.access_token
             }
+            
             if(user){
-                token.sub = user.id
-                token.email = user.email
+
+                let existingUser = await prisma.user.findUnique({
+                    where : {email : user.email!}
+                })
+
+                if(!existingUser){
+                    existingUser = await prisma.user.create({
+                        data : {
+                            email : user.email!,
+                        }
+                    })
+                }
+                token.id = existingUser.id
+                token.email = existingUser.email
             }
             return token
         },
 
         async session({session, token} : any){
-            session.user.id = token.sub,
             session.user.email = token.email 
-            session.accessToken = token.accessToken
+            session.user.id = token.id;
+            session.access_token = token.accessToken
 
             return session
             
@@ -101,5 +115,5 @@ export const authOptions : NextAuthOptions = {
         strategy : 'jwt',
         maxAge : 30 * 24 * 60 * 60
     },
-    secret : process.env.AUTH_SECRET || 'secreTe'
+    secret : process.env.AUTH_SECRET
 }

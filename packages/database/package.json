@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "dependencies": {
-    "@prisma/client": "^6.1.0",
-    "prisma": "^6.1.0"
-  },
-  "exports" : {
-    "." : "./src/index.ts"
+  "exports": {
+    ".": "./src/index.ts"
   },
   "devDependencies": {
-    "@repo/typescript-config" : "workspace:*"
+    "@prisma/client": "^6.3.0",
+    "@repo/typescript-config": "workspace:*",
+    "prisma": "^6.3.0"
   }
 }

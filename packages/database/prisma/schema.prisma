@@ -19,7 +19,7 @@ model User {
   email      String @unique
   fullName   String?
   Institute  String?  
-  password   String
+  password   String?
   createdAt  DateTime @default(now())
   LessonPlans LessonPlan[]
 }
