@@ -12,7 +12,7 @@ interface ButtonProps {
 const varients = {
     "default" : "ui-bg-blue-400 ",
     "primary" : "ui-bg-gradient-to-r ui-from-cyan-500 ui-to-blue-700 ui-text-white ui-px-2 ui-py-2 ui-rounded-md",
-    "secondary" :"ui-bg-slate-300 ui-rounded-md md:ui-px-2 ui-py-2 md:ui-text-sm"
+    "secondary" :"ui-bg-slate-300 ui-rounded-md ui-px-2 ui-py-2 md:ui-text-sm"
 }
 
 

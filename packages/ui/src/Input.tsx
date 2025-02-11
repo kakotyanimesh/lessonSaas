@@ -5,7 +5,7 @@ interface InputProps {
     Ref ?: React.Ref<HTMLInputElement>,
     type : string,
     varientsType : 'primary' | 'default',
-    label : string
+    label ?: string
 }
 
 
